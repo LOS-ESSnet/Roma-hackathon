@@ -1,0 +1,60 @@
+{
+  "name": "roma-hackathon",
+  "description": "React Web application to consume and display tourism RDF data",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LOS-ESSNet/Roma-hackathon.git"
+  },
+  "author": "INSEE (http://www.insee.fr)",
+  "contributor": [
+    {
+      "name": "Nicolas Laval",
+      "email": "nicolas.laval@insee.fr"
+    }
+  ],
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "immutable": "^4.0.0-rc.12",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-map-gl": "^4.0.10",
+    "react-redux": "5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.5",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sparql-connect": "^0.1.6",
+    "wellknown": "^0.5.0"
+  },
+  "scripts": {
+    "start": "cross-env NODE_PATH=src/ react-scripts start",
+    "build": "cross-env NODE_PATH=src/ react-scripts build",
+    "test": "cross-env NODE_PATH=src/ react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "eslint": "5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.16.4"
+  }
+}
