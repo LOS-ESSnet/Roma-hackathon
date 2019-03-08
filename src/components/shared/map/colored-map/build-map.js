@@ -7,7 +7,7 @@ export const buildClasses = (data, colors) => {
   const values = data.map(d => d.myIndicator).sort((a, b) => a - b);
   const step = Math.trunc(values.length / colors.length);
   return values.reduce((_, v, i) => {
-    if (i % step === 0) _.push([v, colors.splice(0, 1)[0]]);
+    if (i % step === 0 && i !== 0) _.push([v, colors.splice(0, 1)[0]]);
     return _;
   }, []);
 };
