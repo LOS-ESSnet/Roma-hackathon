@@ -8,6 +8,7 @@ const dictionary = {
   classificationsTitle: { fr: 'Nomenclatures', en: 'Classifications' },
   essnetCountriesTitle: { fr: "Pays de l'ESSNet", en: 'ESSNet countries' },
   inseeClassificationsTitle: { fr: 'Nomenclatures Insee', en: 'Insee classifications' },
+  arrivalsTitle: { fr: 'Arrivées 2015', en: '2015 Arrivals' },
   dataSource: { fr: 'Source des données :', en: 'Data source:' },
   between: { fr: 'entre', en: 'between' },
 };
