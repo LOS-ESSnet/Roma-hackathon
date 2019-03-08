@@ -3,8 +3,9 @@ import Classifications from 'components/classifications';
 import EssNetCountries from 'components/essnet-countries';
 import Arrivals from 'components/arrivals';
 import ArrivalsMap from 'components/arrivals-map';
+import TypeOfHousing from 'components/type-of-housing';
 import D from 'i18n';
-import { UnfoldMore, Map, Flight } from '@material-ui/icons';
+import { UnfoldMore, Map, Flight, DonutLarge } from '@material-ui/icons';
 
 export default [
   {
@@ -34,6 +35,12 @@ export default [
         <Map />
         <Flight />
       </>
-    ), // DonutLarge
+    ),
+  },
+  {
+    route: '/type-of-housing',
+    title: D.typeOfHousingTitle,
+    component: TypeOfHousing,
+    icon: <DonutLarge />,
   },
 ];
