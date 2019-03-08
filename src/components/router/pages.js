@@ -2,6 +2,7 @@ import React from 'react';
 import Classifications from 'components/classifications';
 import EssNetCountries from 'components/essnet-countries';
 import Arrivals from 'components/arrivals';
+import ArrivalsMap from 'components/arrivals-map';
 import D from 'i18n';
 import { UnfoldMore, Map, Flight } from '@material-ui/icons';
 
@@ -23,5 +24,16 @@ export default [
     title: D.arrivalsTitle,
     component: Arrivals,
     icon: <Flight />, // DonutLarge
+  },
+  {
+    route: '/2015-arrivals-map',
+    title: D.arrivalsTitle,
+    component: ArrivalsMap,
+    icon: (
+      <>
+        <Map />
+        <Flight />
+      </>
+    ), // DonutLarge
   },
 ];

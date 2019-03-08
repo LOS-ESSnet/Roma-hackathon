@@ -18,8 +18,10 @@ SELECT ?label ?contours ?id WHERE {
   ?nuts rdfs:label ?label .
   ?nuts geo:hasGeometry ?geometry .
   ?geometry geo:asWKT ?contours
-  VALUES ?country {<http://ec.europa.eu/nuts/fr> <http://ec.europa.eu/nuts/it>
-    <http://ec.europa.eu/nuts/bg> <http://ec.europa.eu/nuts/ie>}
+  VALUES ?country {<http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/FR>
+    <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/IT>
+    <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/BG>
+    <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/IE>}
 }
 `;
 
