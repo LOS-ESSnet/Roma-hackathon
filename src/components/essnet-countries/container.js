@@ -11,17 +11,20 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 
 SELECT ?label ?contours ?id WHERE {
-  ?country dcterms:hasPart* ?nuts .
-  ?nuts a geo:Feature .
-  ?nuts dc:identifier ?id .
-  ?nuts xkos:depth "3"^^xsd:int .
-  ?nuts rdfs:label ?label .
-  ?nuts geo:hasGeometry ?geometry .
-  ?geometry geo:asWKT ?contours
-  VALUES ?country {<http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/FR>
-    <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/IT>
-    <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/BG>
-    <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/IE>}
+  GRAPH <http://rdf.insee.fr/graphes/geo/nuts/2016/10>
+  {
+    ?country dcterms:hasPart* ?nuts .
+    ?nuts a geo:Feature .
+    ?nuts dc:identifier ?id .
+    ?nuts xkos:depth "3"^^xsd:int .
+    ?nuts rdfs:label ?label .
+    ?nuts geo:hasGeometry ?geometry .
+    ?geometry geo:asWKT ?contours
+    VALUES ?country {<http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/FR>
+      <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/IT>
+      <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/BG>
+      <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/IE>}
+  }
 }
 `;
 

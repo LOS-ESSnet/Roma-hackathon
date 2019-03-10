@@ -5,7 +5,7 @@ import D from 'i18n';
 import { wktToGeojson } from 'utils/map/wkt-to-geojson';
 
 const EssNetCountries = ({ essNetCountries }) => {
-  const colors = ['#B31919', '#271C8A', '#156812', '#DF4A81'];
+  const colors = ['#D3195C', '#D3195C'];
   if (essNetCountries.length === 0) return <div>No data</div>;
   const geoJsonData = essNetCountries.map(({ contours, ...d }) => ({
     contours: wktToGeojson(contours),

@@ -7,12 +7,7 @@ const Legend = ({ classes, legend: { title, body } }) => (
   <div className="legend-container">
     <h3>{title}</h3>
     <p>{body}</p>
-    <p>
-      {D.dataSource}{' '}
-      <a href="https://www.insee.fr" target="_blank" rel="noopener noreferrer">
-        {'Insee'}
-      </a>
-    </p>
+    <p>{`${D.dataSource} : Eurostat`}</p>
     <hr />
     <div>{buildLegend(classes)}</div>
   </div>

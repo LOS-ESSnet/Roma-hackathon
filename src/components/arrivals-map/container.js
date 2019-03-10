@@ -5,15 +5,20 @@ import EssNetCountries from './component';
 
 const body = (repo, country) => `
 {
-  SELECT ?label ?contours ?myIndicator WHERE {
-    <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/${country}> dcterms:hasPart* ?nuts .
-    ?nuts a geo:Feature .
-    ?nuts xkos:depth "2"^^xsd:int .
-    ?nuts rdfs:label ?label .
-    ?nuts geo:hasGeometry ?geometry .
-    ?geometry geo:asWKT ?contours
+  SELECT ?label ?contours ?myIndicator
+  WHERE {
+    GRAPH <http://rdf.insee.fr/graphes/geo/nuts/2016/10>
     {
-      SELECT (sum(?arrivals) as ?myIndicator) ?nuts WHERE {
+      <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/${country}> dcterms:hasPart* ?nuts .
+      ?nuts a geo:Feature .
+      ?nuts xkos:depth "2"^^xsd:int .
+      ?nuts rdfs:label ?label .
+      ?nuts geo:hasGeometry ?geometry .
+      ?geometry geo:asWKT ?contours 
+    }
+    {
+      SELECT (sum(?arrivals) as ?myIndicator) ?nuts
+      WHERE {
           SERVICE <${repo}> {
               ?obs a qb:observation .
               ?obs vocab:Year <http://ld.linked-open-statistics.org/data/conceptscheme/Year/2015> .

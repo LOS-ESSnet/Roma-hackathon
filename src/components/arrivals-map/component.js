@@ -7,19 +7,14 @@ import { wktToGeojson } from 'utils/map/wkt-to-geojson';
 const ArrivalsMap = ({ arrivalsMap }) => {
   const colors = [
     '#F2A4C4',
-    // '#EF91B6',
-    '#EB7EA8',
+    '#EF91B6',
     '#EB7EA8',
     '#E76C9B',
     '#E35B8E',
-    '#E35B8E',
-    //'#DF4A81',
+    '#DF4A81',
     '#DB3975',
-    '#DB3975',
-    // '#D72969',
+    '#D72969',
     '#D3195C',
-    '#D3195C',
-    '#D00B51',
     '#D00B51',
   ];
   if (arrivalsMap.length === 0) return <div>No data</div>;

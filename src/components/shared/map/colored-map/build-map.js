@@ -1,11 +1,12 @@
 import React from 'react';
 import { fromJS } from 'immutable';
 import D from 'i18n';
+import { prettyNumber } from 'utils/pretty-number';
 import { defaultMapStyle, dataLayer } from './style';
 
 export const buildClasses = (data, colors) => {
   const values = data.map(d => d.myIndicator).sort((a, b) => a - b);
-  const step = Math.trunc(values.length / colors.length);
+  const step = Math.trunc(values.length / colors.length) + 1;
   return values.reduce((_, v, i) => {
     if (i % step === 0 && i !== 0) _.push([v, colors.splice(0, 1)[0]]);
     return _;
@@ -14,7 +15,7 @@ export const buildClasses = (data, colors) => {
 
 const getClass = (classes, value) => {
   let cl = classes.length - 1;
-  for (let i = 0; i < classes.length - 1; i++) {
+  for (let i = 0; i < classes.length - 1; i += 1) {
     const c = Number.parseFloat(classes[i][0]);
     if (value < c) {
       cl = i;
@@ -55,9 +56,9 @@ export const buildLegend = classes =>
   classes.map((c, i) => {
     const square = color => <span style={{ backgroundColor: color, color }}>color</span>;
     let content;
-    if (i === 0) content = ` < ${c[0]}`;
-    else if (i === classes.length - 1) content = ` > ${classes[i - 1][0]}`;
-    else content = ` ${D.between} ${classes[i - 1][0]} et ${c[0]}`;
+    if (i === 0) content = ` < ${prettyNumber(c[0])}`;
+    else if (i === classes.length - 1) content = ` > ${prettyNumber(classes[i - 1][0])}`;
+    else content = ` ${D.between} ${prettyNumber(classes[i - 1][0])} et ${prettyNumber(c[0])}`;
     return (
       <p key={`legend-item-${i}`}>
         {square(c[1])}
