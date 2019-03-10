@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import { Chart } from 'primereact/chart';
 import { backgroundColor, hoverBackgroundColor } from 'utils/prime-colors';
 import D from 'i18n';
@@ -41,27 +42,26 @@ const Arrivals = ({ valueIt_I551, valueIt_I552_I553, valueFr_I551, valueFr_I552_
       <Typography variant="h3" color="primary" align="center" className="header">
         {D.arrivalsTitle}
       </Typography>
-      <table>
-        <tr>
-          <td>
-            <Typography variant="h3" color="primary" align="center" className="header">
-              {'Italy'}
-            </Typography>
-          </td>
-          <td>
-            <Typography variant="h3" color="primary" align="center" className="header">
-              {'France'}
-            </Typography>
-          </td>
-        </tr>
-      </table>
-      <div className="doughnut">
-        <Chart type="doughnut" data={dataIt} />
-      </div>
-
-      <div className="doughnut">
-        <Chart type="doughnut" data={dataFr} />
-      </div>
+      <Grid container>
+        <Grid item xs={6}>
+          <Typography variant="h3" color="primary" align="center" className="header">
+            {'Italy'}
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography variant="h3" color="primary" align="center" className="header">
+            {'France'}
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item xs={6}>
+          <Chart type="doughnut" data={dataIt} />
+        </Grid>
+        <Grid item xs={6}>
+          <Chart type="doughnut" data={dataFr} />
+        </Grid>
+      </Grid>
     </>
   );
 };
