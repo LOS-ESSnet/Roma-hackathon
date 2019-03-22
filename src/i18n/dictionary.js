@@ -12,6 +12,7 @@ const dictionary = {
   typeOfHousingTitle: { fr: 'Type of housing', en: 'Type of housing' },
   dataSource: { fr: 'Source des données :', en: 'Data source:' },
   between: { fr: 'entre', en: 'between' },
+  year: { fr: 'Année', en: 'Year' },
 };
 
 export default dictionary;

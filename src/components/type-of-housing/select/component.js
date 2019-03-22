@@ -4,11 +4,12 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import D from 'i18n';
 
 const SelectYear = ({ timePeriods, year, handleChange }) => (
   <Grid container justify="center">
     <FormControl>
-      <InputLabel htmlFor="year">Age</InputLabel>
+      <InputLabel htmlFor="year">{D.year}</InputLabel>
       <Select
         value={year}
         onChange={e => handleChange(e.target.value)}
