@@ -20,7 +20,7 @@ const body = (repo, country) => `
       SELECT (sum(?arrivals) as ?myIndicator) ?nuts
       WHERE {
           SERVICE <${repo}> {
-              ?obs a qb:observation .
+              ?obs a qb:Observation .
               ?obs vocab:Year <http://ld.linked-open-statistics.org/data/conceptscheme/Year/2015> .
               ?obs vocab:NutsRegion ?nuts .
               ?obs vocab:NACE <http://ld.linked-open-statistics.org/data/conceptscheme/NACE/I551_I553> .

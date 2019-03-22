@@ -7,7 +7,7 @@ const body = (repo, country, response) => `
 {
     SELECT (sum(?arrivals) as ?${response}) WHERE {
         SERVICE <${repo}> {
-            ?obs a qb:observation .
+            ?obs a qb:Observation .
             ?obs vocab:Year <http://ld.linked-open-statistics.org/data/conceptscheme/Year/2015> .
             ?obs vocab:NutsRegion <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/${country}> .
             ?obs vocab:NACE <http://ld.linked-open-statistics.org/data/conceptscheme/NACE/I551_I553> .
