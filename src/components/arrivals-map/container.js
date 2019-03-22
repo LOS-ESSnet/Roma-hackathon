@@ -22,6 +22,7 @@ const body = (repo, country) => `
           SERVICE <${repo}> {
               ?obs a qb:Observation .
               ?obs dimension:TimePeriod <http://ld.linked-open-statistics.org/codelist/TimePeriod/2015> .
+              ?obs dimension:Indicator <http://ld.linked-open-statistics.org/codelist/Indicator/AR> .
               ?obs dimension:NutsRegion ?nuts .
               ?obs dimension:AccomodationType <http://ld.linked-open-statistics.org/codelist/AccomodationType/I551_I553> .
               ?obs measure:Value ?arrivals

@@ -14,7 +14,7 @@ export default [
     icon: <Map />,
   },
   {
-    route: '/2015-arrivals',
+    route: '/arrivals',
     title: D.arrivalsTitle,
     component: Arrivals,
     icon: <Flight />,
