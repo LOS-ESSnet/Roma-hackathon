@@ -20,10 +20,10 @@ SELECT ?label ?contours ?id WHERE {
     ?nuts rdfs:label ?label .
     ?nuts geo:hasGeometry ?geometry .
     ?geometry geo:asWKT ?contours
-    VALUES ?country {<http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/FR>
-      <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/IT>
-      <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/BG>
-      <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/IE>}
+    VALUES ?country {<http://ld.linked-open-statistics.org/codelist/NutsRegion/FR>
+      <http://ld.linked-open-statistics.org/codelist/NutsRegion/IT>
+      <http://ld.linked-open-statistics.org/codelist/NutsRegion/BG>
+      <http://ld.linked-open-statistics.org/codelist/NutsRegion/IE>}
   }
 }
 `;
