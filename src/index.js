@@ -7,7 +7,7 @@ import { getReducer, setQueryURL } from 'sparql-connect';
 import { sparqlConfig } from 'config';
 import './index.scss';
 
-setQueryURL(sparqlConfig.SPARQL_ENDPOINT_LOS_NUTS);
+setQueryURL(sparqlConfig.SPARQL_ENDPOINT_LOS_CODES);
 const store = configureStore(getReducer());
 
 ReactDOM.render(
