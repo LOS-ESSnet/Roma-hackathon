@@ -8,10 +8,10 @@ const body = (repo, country, response) => `
   SELECT (sum(?arrivals) as ?${response}_I551) WHERE {
       SERVICE <${repo}> {
           ?obs a qb:Observation .
-          ?obs vocab:Year <http://ld.linked-open-statistics.org/data/conceptscheme/Year/2017> .
-          ?obs vocab:NutsRegion <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/${country}> .
-          ?obs vocab:NACE <http://ld.linked-open-statistics.org/data/conceptscheme/NACE/I551> .
-          ?obs vocab:Value ?arrivals
+          ?obs dimension:TimePeriod <http://ld.linked-open-statistics.org/codelist/TimePeriod/2017> .
+          ?obs dimension:NutsRegion <http://ld.linked-open-statistics.org/codelist/NutsRegion/${country}> .
+          ?obs dimension:AccomodationType <http://ld.linked-open-statistics.org/codelist/AccomodationType/I551> .
+          ?obs measure:Value ?arrivals
       }
   }
 }
@@ -19,10 +19,10 @@ const body = (repo, country, response) => `
   SELECT (sum(?arrivals) as ?${response}_I552_I553) WHERE {
     SERVICE <${repo}> {
         ?obs a qb:Observation .
-        ?obs vocab:Year <http://ld.linked-open-statistics.org/data/conceptscheme/Year/2017> .
-        ?obs vocab:NutsRegion <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/${country}> .
-        ?obs vocab:NACE <http://ld.linked-open-statistics.org/data/conceptscheme/NACE/I552_I553> .
-        ?obs vocab:Value ?arrivals
+        ?obs dimension:TimePeriod <http://ld.linked-open-statistics.org/codelist/TimePeriod/2017> .
+        ?obs dimension:NutsRegion <http://ld.linked-open-statistics.org/codelist/NutsRegion/${country}> .
+        ?obs dimension:AccomodationType <http://ld.linked-open-statistics.org/codelist/AccomodationType/I552_I553> .
+        ?obs measure:Value ?arrivals
     }
   }
 }
@@ -30,7 +30,8 @@ const body = (repo, country, response) => `
 
 const queryBuilder = () => `
 PREFIX qb:<http://purl.org/linked-data/cube#>
-PREFIX vocab:<http://ld.linked-open-statistics.org/vocab/>
+PREFIX dimension:<http://ld.linked-open-statistics.org/dimension/>
+PREFIX measure:<http://ld.linked-open-statistics.org/measure/>
 
 SELECT ?valueIt_I551 ?valueIt_I552_I553 ?valueFr_I551 ?valueFr_I552_I553 WHERE {
     ${body(sparqlConfig.SPARQL_ENDPOINT_IT_TOURISM, 'IT', 'valueIt')}

@@ -9,7 +9,7 @@ const body = (repo, country) => `
   WHERE {
     GRAPH <http://rdf.insee.fr/graphes/geo/nuts/2016/10>
     {
-      <http://ld.linked-open-statistics.org/data/conceptscheme/NutsRegion/${country}> dcterms:hasPart* ?nuts .
+      <http://ld.linked-open-statistics.org/codelist/NutsRegion/${country}> dcterms:hasPart* ?nuts .
       ?nuts a geo:Feature .
       ?nuts xkos:depth "2"^^xsd:int .
       ?nuts rdfs:label ?label .
@@ -21,10 +21,10 @@ const body = (repo, country) => `
       WHERE {
           SERVICE <${repo}> {
               ?obs a qb:Observation .
-              ?obs vocab:Year <http://ld.linked-open-statistics.org/data/conceptscheme/Year/2015> .
-              ?obs vocab:NutsRegion ?nuts .
-              ?obs vocab:NACE <http://ld.linked-open-statistics.org/data/conceptscheme/NACE/I551_I553> .
-              ?obs vocab:Value ?arrivals
+              ?obs dimension:TimePeriod <http://ld.linked-open-statistics.org/codelist/TimePeriod/2015> .
+              ?obs dimension:NutsRegion ?nuts .
+              ?obs dimension:AccomodationType <http://ld.linked-open-statistics.org/codelist/AccomodationType/I551_I553> .
+              ?obs measure:Value ?arrivals
           }
       }
       GROUP BY ?nuts
@@ -40,7 +40,8 @@ PREFIX xkos: <http://rdf-vocabulary.ddialliance.org/xkos#>
 PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX qb:<http://purl.org/linked-data/cube#>
-PREFIX vocab:<http://ld.linked-open-statistics.org/vocab/>
+PREFIX dimension:<http://ld.linked-open-statistics.org/dimension/>
+PREFIX measure:<http://ld.linked-open-statistics.org/measure/>
 
 SELECT ?label ?contours ?myIndicator WHERE {
   ${body(sparqlConfig.SPARQL_ENDPOINT_IT_TOURISM, 'IT')}
