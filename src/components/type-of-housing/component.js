@@ -3,7 +3,6 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { Chart } from 'primereact/chart';
 import { backgroundColor, hoverBackgroundColor } from 'utils/prime-colors';
-import D from 'i18n';
 import './type-of-housing.scss';
 
 const Arrivals = ({ valueIt_I551, valueIt_I552_I553, valueFr_I551, valueFr_I552_I553 }) => {
@@ -39,9 +38,6 @@ const Arrivals = ({ valueIt_I551, valueIt_I552_I553, valueFr_I551, valueFr_I552_
   };
   return (
     <>
-      <Typography variant="h3" color="primary" align="center" className="header">
-        {D.arrivalsTitle}
-      </Typography>
       <Grid container>
         <Grid item xs={6}>
           <Typography variant="h3" color="primary" align="center" className="header">
