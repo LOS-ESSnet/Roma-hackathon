@@ -5,32 +5,39 @@ import { Chart } from 'primereact/chart';
 import { backgroundColor, hoverBackgroundColor } from 'utils/prime-colors';
 import './type-of-housing.scss';
 
-const Arrivals = ({ valueIt_I551, valueIt_I552_I553, valueFr_I551, valueFr_I552_I553 }) => {
-  const rateIt = (
-    (parseFloat(valueIt_I551, 10) /
-      (parseFloat(valueIt_I551, 10) + parseFloat(valueIt_I552_I553, 10))) *
-    100
-  ).toFixed(2);
+const Arrivals = ({
+  valueIt_I551,
+  valueIt_I552,
+  valueIt_I553,
+  valueFr_I551,
+  valueFr_I552,
+  valueFr_I553,
+}) => {
+  const totIt =
+    parseFloat(valueIt_I551, 10) + parseFloat(valueIt_I552, 10) + parseFloat(valueIt_I553, 10);
+  const rateIt_I551 = ((parseFloat(valueIt_I551, 10) / totIt) * 100).toFixed(2);
+  const rateIt_I552 = ((parseFloat(valueIt_I552, 10) / totIt) * 100).toFixed(2);
+  const rateIt_I553 = ((parseFloat(valueIt_I553, 10) / totIt) * 100).toFixed(2);
   const dataIt = {
-    labels: ['Hotel', 'Other'],
+    labels: ['Hotel', 'Camping', 'Other'],
     datasets: [
       {
-        data: [rateIt, 100 - rateIt],
+        data: [rateIt_I551, rateIt_I553, rateIt_I552],
         backgroundColor,
         hoverBackgroundColor,
       },
     ],
   };
-  const rateFr = (
-    (parseFloat(valueFr_I551, 10) /
-      (parseFloat(valueFr_I551, 10) + parseFloat(valueFr_I552_I553, 10))) *
-    100
-  ).toFixed(2);
+  const totFr =
+    parseFloat(valueFr_I551, 10) + parseFloat(valueFr_I552, 10) + parseFloat(valueFr_I553, 10);
+  const rateFr_I551 = ((parseFloat(valueFr_I551, 10) / totFr) * 100).toFixed(2);
+  const rateFr_I552 = ((parseFloat(valueFr_I552, 10) / totFr) * 100).toFixed(2);
+  const rateFr_I553 = ((parseFloat(valueFr_I553, 10) / totFr) * 100).toFixed(2);
   const dataFr = {
-    labels: ['Hotel', 'Other'],
+    labels: ['Hotel', 'Camping', 'Other'],
     datasets: [
       {
-        data: [rateFr, 100 - rateFr],
+        data: [rateFr_I551, rateFr_I553, rateFr_I552],
         backgroundColor,
         hoverBackgroundColor,
       },

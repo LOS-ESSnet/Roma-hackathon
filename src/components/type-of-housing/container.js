@@ -17,13 +17,25 @@ const body = (year, repo, country, response) => `
   }
 }
 {
-  SELECT (sum(?arrivals) as ?${response}_I552_I553) WHERE {
+  SELECT (sum(?arrivals) as ?${response}_I552) WHERE {
     SERVICE <${repo}> {
         ?obs a qb:Observation .
         ?obs dimension:TimePeriod <${year}> .
         ?obs dimension:Indicator <http://ld.linked-open-statistics.org/codelist/Indicator/AR> .
         ?obs dimension:NutsRegion <http://ld.linked-open-statistics.org/codelist/NutsRegion/${country}> .
-        ?obs dimension:AccomodationType <http://ld.linked-open-statistics.org/codelist/AccomodationType/I552_I553> .
+        ?obs dimension:AccomodationType <http://ld.linked-open-statistics.org/codelist/AccomodationType/I552> .
+        ?obs measure:Value ?arrivals
+    }
+  }
+}
+{
+  SELECT (sum(?arrivals) as ?${response}_I553) WHERE {
+    SERVICE <${repo}> {
+        ?obs a qb:Observation .
+        ?obs dimension:TimePeriod <${year}> .
+        ?obs dimension:Indicator <http://ld.linked-open-statistics.org/codelist/Indicator/AR> .
+        ?obs dimension:NutsRegion <http://ld.linked-open-statistics.org/codelist/NutsRegion/${country}> .
+        ?obs dimension:AccomodationType <http://ld.linked-open-statistics.org/codelist/AccomodationType/I553> .
         ?obs measure:Value ?arrivals
     }
   }
@@ -35,7 +47,7 @@ PREFIX qb:<http://purl.org/linked-data/cube#>
 PREFIX dimension:<http://ld.linked-open-statistics.org/dimension/>
 PREFIX measure:<http://ld.linked-open-statistics.org/measure/>
 
-SELECT ?valueIt_I551 ?valueIt_I552_I553 ?valueFr_I551 ?valueFr_I552_I553 WHERE {
+SELECT ?valueIt_I551 ?valueIt_I552 ?valueIt_I553 ?valueFr_I551 ?valueFr_I552 ?valueFr_I553 WHERE {
     ${body(year, sparqlConfig.SPARQL_ENDPOINT_IT_TOURISM, 'IT', 'valueIt')}
     ${body(year, sparqlConfig.SPARQL_ENDPOINT_FR_TOURISM, 'FR', 'valueFr')}
 }
